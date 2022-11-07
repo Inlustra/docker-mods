@@ -1,15 +1,24 @@
 #!/usr/bin/with-contenv bash
 
 echo "*** GCloudCLI Installer ***"
+echo "*** GCloudCLI Installer ***"
+echo "*** GCloudCLI Installer ***"
 echo "Checking if gcloud is installed"
 
 if ! gcloud version &> /dev/null; then 
   apt-get update
+  echo "*** Installing Deps ***"
   apt-get install apt-transport-https ca-certificates gnupg
+  echo "*** Adding Source ***"
   echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+  echo "*** Adding Key ***"
   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-  apt-get update
-  apt-get install google-cloud-cli
+  echo "*** Installing google-cloud-cli ***"
+  apt-get install -y google-cloud-cli
 else
   echo "Already Installed"
 fi
+
+echo "*** END GCloudCLI Installer ***"
+echo "*** END GCloudCLI Installer ***"
+echo "*** END GCloudCLI Installer ***"
