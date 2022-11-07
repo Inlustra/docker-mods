@@ -8,11 +8,15 @@ echo "Checking if gcloud is installed"
 if ! gcloud version &> /dev/null; then 
   apt-get update
   echo "*** Installing Deps ***"
-  apt-get install apt-transport-https ca-certificates gnupg
+  apt-get install -y apt-transport-https ca-certificates gnupg
   echo "*** Adding Source ***"
-  echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+  echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+  echo "*** Updating ***"
+  apt-get update
   echo "*** Adding Key ***"
   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+  echo "*** Updating ***"
+  apt-get update
   echo "*** Installing google-cloud-cli ***"
   apt-get install -y google-cloud-cli
 else
