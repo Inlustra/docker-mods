@@ -1,9 +1,0 @@
-mods:
-  calibre-web:
-    mod_count: 1
-    container_mods:
-      - calibre: https://github.com/linuxserver/docker-calibre-web/tree/calibre
-  code-server:
-    mod_count: 24
-    container_mods:
-      - pulumi: https://github.com/inlustra/docker-mods/tree/code-server-awscli
