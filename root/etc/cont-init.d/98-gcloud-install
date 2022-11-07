@@ -4,10 +4,12 @@ echo "*** GCloudCLI Installer ***"
 echo "Checking if gcloud is installed"
 
 if ! gcloud version &> /dev/null; then 
-  curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-408.0.1-linux-x86_64.tar.gz > /google-cloud-sdk.tar.gz
-  cd /
-  tar -xf /google-cloud-sdk.tar.gz
-  /google-cloud-sdk/install.sh
+  apt-get update
+  apt-get install apt-transport-https ca-certificates gnupg
+  echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+  apt-get update
+  apt-get install google-cloud-cli
 else
   echo "Already Installed"
 fi
