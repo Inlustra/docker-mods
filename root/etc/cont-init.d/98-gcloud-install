@@ -4,9 +4,10 @@ echo "*** GCloudCLI Installer ***"
 echo "Checking if gcloud is installed"
 
 if ! gcloud version &> /dev/null; then 
-  curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-408.0.1-linux-x86_64.tar.gz > /tmp/google-cloud-sdk.tar.gz
-  cd /tmp/
-  tar -xf /tmp/google-cloud-sdk.tar.gz
-  /tmp/google-cloud-sdk/install.sh
+  curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-408.0.1-linux-x86_64.tar.gz > /google-cloud-sdk.tar.gz
+  cd /
+  tar -xf /google-cloud-sdk.tar.gz
+  /google-cloud-sdk/install.sh
 else
+  echo "Already Installed"
 fi
